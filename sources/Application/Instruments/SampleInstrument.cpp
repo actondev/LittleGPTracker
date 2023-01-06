@@ -541,7 +541,7 @@ bool SampleInstrument::Render(int channel,fixed *buffer,int size,bool updateTick
 		 // downsample
 
 		 int downsmpl=rp->downsample_ ;
-		 unsigned int dsMask=0xFFFFFFFF<<downsmpl ;
+		 int32_t dsMask=0xFFFFFFFF<<downsmpl ;
 
 		 // Loop mode
 
