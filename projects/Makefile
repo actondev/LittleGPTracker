@@ -571,8 +571,9 @@ endif
 # Build W32 first
 deploy:
 	make PLATFORM=PSP
+	make PLATFORM=RS97
+	make PLATFORM=BITTBOY
 	~/docker_steam.sh 
-	~/docker_deb686.sh 
-	~/lgpt_package.sh 
-#	~/build_and_copy_from_pi.sh
+#	~/docker_deb686.sh 
+	~/build_and_copy_from_pi.sh
 	~/lgpt_package.sh	        
