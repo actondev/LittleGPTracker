@@ -1,10 +1,7 @@
-
-include $(PWD)/deb_rules
+include $(PWD)/rules_deb
 
 CFLAGS	:= -O3 -DCPP_MEMORY -Wall -I/usr/local/include -I$(PWD)/../sources -D__LINUX_ALSA__ -D__LINUX_ALSASEQ__ -D_DEBUG
 #CFLAGS	:= -g -DCPP_MEMORY -Wall -I/usr/local/include -I$(PWD)/../sources -D__LINUX_ALSA__ -D__LINUX_ALSASEQ__
- 
-
 CXXFLAGS:= $(CFLAGS)
 
 EXTENSION:= deb-exe
