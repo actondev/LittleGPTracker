@@ -146,7 +146,10 @@ MixBus *MixerService::GetMixBus(int i) {
 } ;
 
 void MixerService::Update(Observable &o,I_ObservableData *d)  {
-
+  if(!d) {
+	printf("null MixerService I_ObservableData\n");
+	return;
+  }
   AudioDriver::Event *event=(AudioDriver::Event *)d;
   if (event->type_ == AudioDriver::Event::ADET_BUFFERNEEDED)
   {  
