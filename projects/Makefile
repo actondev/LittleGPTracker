@@ -4,7 +4,7 @@
 .SUFFIXES:
 #---------------------------------------------------------------------------------
 
-PLATFORM:=  RASPI
+PLATFORM:=  DEB
 
 include $(PWD)/Makefile.$(PLATFORM)
 
@@ -29,7 +29,7 @@ NDSDIRS	:=    . \
 				../sources/Adapters/Dummy/Midi \
 				../sources/Adapters/NDS/Sound \
 				../sources/Adapters/NDS/UI
-				
+
 
 
 DEBDIRS	:=			../sources/Adapters/Unix/FileSystem \
@@ -143,7 +143,7 @@ RS97DIRS      :=    . \
 				../sources/Adapters/SDL/Process \
 				../sources/Adapters/SDL/GUI \
 				../sources/Adapters/SDL/Timer
-				
+
 BITTBOYDIRS      :=    . \
 				../sources/Adapters/DINGOO/Main \
 				../sources/Adapters/Unix/FileSystem \
@@ -215,7 +215,7 @@ COMMONDIRS	:=	../sources/System/Console \
 				../sources/Application/Persistency \
 				../sources/Foundation \
 				../sources/Services/Audio \
-  				../sources/Foundation/Services \
+				../sources/Foundation/Services \
 				../sources/Foundation/Variables \
 				../sources/Externals/Compression \
 				../sources/Externals/Soundfont \
@@ -257,7 +257,7 @@ RS97FILES  		:=  GPSDLMain.o \
 					BITTBOYSerialMidiDevice.o \
 					BITTBOYMidiService.o \
 					SDLGUIWindowImp.o 
-					
+
 BITTBOYFILES    :=  GPSDLMain.o \
 					UnixFileSystem.o \
 					DINGOOAudio.o \
@@ -287,7 +287,7 @@ PSPFILES		:=	PSPmain.o  \
 					SDLProcess.o \
 					SDLTimer.o \
 					PSPSystem.o  
-					
+
 DEBFILES		:=	UnixFileSystem.o \
 					DEBmain.o \
 					DEBSystem.o \
@@ -471,7 +471,7 @@ COMMONFILES		:=	Logger.o Trace.o Result.o Status.o Config.o \
 TARGET		:=	$(TITLE)
 BUILD		:=	build$(PLATFORM)
 SOURCES		:=	$($(PLATFORM)DIRS) $(COMMONDIRS)
-				
+
 INCLUDES	:=
 
 
@@ -546,7 +546,7 @@ all: $(OUTPUT).$(EXTENSION)
 $(OUTPUT).exe   :   $(OFILES)
 	@echo "linking result.."
 	@$(LD) $(LDFLAGS) -o $@ $(OFILES) $(LIBS)
-	
+
 $(OUTPUT).fxe	:	$(OUTPUT).gxb
 
 $(OUTPUT).gxb	:	$(OUTPUT).elf
