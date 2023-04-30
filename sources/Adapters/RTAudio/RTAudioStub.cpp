@@ -58,7 +58,7 @@ RTAudioStub::RTAudioStub(AudioSettings &h):Audio(h),
       if (info.isDefaultOutput || defaultDevice.length() ==0)
       {
         defaultDevice=info.name ;
-        if (!selinfo.probed) selinfo=info ;
+        // if (!selinfo.probed) selinfo=info ;
       }
 
       if ((deviceName)&&(!strncmp(deviceName,info.name.c_str(),strlen(deviceName))))
