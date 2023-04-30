@@ -4,7 +4,7 @@
 .SUFFIXES:
 #---------------------------------------------------------------------------------
 
-PLATFORM:=  DEB
+PLATFORM:=  RASPI
 
 include $(PWD)/Makefile.$(PLATFORM)
 
