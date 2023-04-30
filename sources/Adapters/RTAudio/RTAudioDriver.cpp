@@ -90,9 +90,10 @@ bool RTAudioDriver::InitDriver() {
 		audio_.openStream( &params, NULL, RTAUDIO_SINT16,
 		                sampleRate, &bufferFrames, &callback, (void *)this);
 	}
-  catch (RtError &e)
+  catch (...)
   {
-		Trace::Error("Error opening audio output stream: %s",e.getMessage().c_str()) ;
+		// Trace::Error("Error opening audio output stream: %s",e.getMessage().c_str()) ;
+    Trace::Error("Error opening audio output stream") ;
 		return false ;
 	};
 
@@ -104,7 +105,8 @@ bool RTAudioDriver::InitDriver() {
 	// Allocates a rotating sound buffer
 	unalignedMain_=(char *)SYS_MALLOC(fragSize_+SOUND_BUFFER_MAX) ;
 	// Make sure the buffer is aligned
-	mainBuffer_=(char *)((((int)unalignedMain_)+1)&(0xFFFFFFFC)) ;
+	// mainBuffer_=(char *)((((size_t)unalignedMain_)+1)&(0xFFFFFFFC)) ;
+	mainBuffer_ = unalignedMain_;
 
 	// Create mini blank buffer in case of underruns
 
@@ -154,9 +156,9 @@ bool RTAudioDriver::StartDriver()
   {
 		audio_.startStream();
 	}
-  catch (RtError &e) 
+  catch (...) 
   {
-		Trace::Error("Error starting output stream: %s",e.getMessage().c_str()) ;
+		Trace::Error("Error starting output stream") ;
 		return false ;
 	};
 	return true ;
