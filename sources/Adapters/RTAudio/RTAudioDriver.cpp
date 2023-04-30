@@ -63,15 +63,15 @@ bool RTAudioDriver::InitDriver() {
 	RtAudio::StreamParameters params ;
 	int deviceID=-1 ;
 	std::string	deviceName=settings_.audioDevice_;
-	for (uint i=0;i<audio_.getDeviceCount();i++)
-  {
-		RtAudio::DeviceInfo info = audio_.getDeviceInfo(i);
-		if (info.name==deviceName)
-    {
-			deviceID=i ;
-			break ;
-		}
-	}
+// 	for (uint i=0;i<audio_.getDeviceCount();i++)
+//   {
+// 		RtAudio::DeviceInfo info = audio_.getDeviceInfo(i);
+// 		if (info.name==deviceName)
+//     {
+// 			// deviceID=i ;
+// 			break ;
+// 		}
+// 	}
 
 	if (deviceID<0)
   {

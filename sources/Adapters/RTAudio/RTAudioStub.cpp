@@ -50,25 +50,25 @@ RTAudioStub::RTAudioStub(AudioSettings &h):Audio(h),
   const char *deviceName=(name.size()!=0)?name.c_str():0 ;
 
   RtAudio::DeviceInfo selinfo ;
-  for (unsigned int i=0; i<devices; i++) 
-  {
-    RtAudio::DeviceInfo info = audio.getDeviceInfo(i);
-    if (info.outputChannels>0)
-    {
-      if (info.isDefaultOutput || defaultDevice.length() ==0)
-      {
-        defaultDevice=info.name ;
-        // if (!selinfo.probed) selinfo=info ;
-      }
+  // for (unsigned int i=0; i<devices; i++) 
+  // {
+  //   RtAudio::DeviceInfo info = audio.getDeviceInfo(i);
+  //   if (info.outputChannels>0)
+  //   {
+  //     if (info.isDefaultOutput || defaultDevice.length() ==0)
+  //     {
+  //       defaultDevice=info.name ;
+  //       // if (!selinfo.probed) selinfo=info ;
+  //     }
 
-      if ((deviceName)&&(!strncmp(deviceName,info.name.c_str(),strlen(deviceName))))
-      {
-        selectedDevice_=info.name ;
-        selinfo=info ;
-      }
-      Trace::Log("AUDIO","Found device %s",info.name.c_str()) ;
-    }
-  }
+  //     if ((deviceName)&&(!strncmp(deviceName,info.name.c_str(),strlen(deviceName))))
+  //     {
+  //       selectedDevice_=info.name ;
+  //       selinfo=info ;
+  //     }
+  //     Trace::Log("AUDIO","Found device %s",info.name.c_str()) ;
+  //   }
+  // }
   if (selectedDevice_.length()==0)
   {
     selectedDevice_=defaultDevice ;
