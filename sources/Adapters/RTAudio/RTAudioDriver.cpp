@@ -189,7 +189,10 @@ void RTAudioDriver::fillBuffer(short *stream,int frameCount)
     { 
     // underrun, let's fill the buffer with blank and bail out
      SYS_MEMSET(stream, 0, len);
-     return ;
+     // this will eventually call AddBuffer
+     // otherwise this will get stuck here forever (playPosition not advancing and buffer still begin 0)
+     thread_->Notify();
+    return ;
     }
     else
     {
