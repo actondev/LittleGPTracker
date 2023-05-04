@@ -98,7 +98,7 @@ Note: CTRL Key mappings of RT and LT are inverted. Since the keyboard's Arrow Ke
 - ARROWs: In screen navigation.
 - A: Insert Chain/Phrase/Note.
 - A,A: Insert next unused Chain/Phrase/Instrument.
-- LT+(B,A): Clone. This will overwrite the current Highlighted Item with a copy of itself using the next unused Item available.
+- RT+(B,A): Clone. This will overwrite the current Highlighted Item with a copy of itself using the next unused Item available.
 - B+A: Cuts the current Highlighted Item .
 - A+ARROWS: Updates Highlighted Item value.
   - A+UP/DOWN: +/- 0x10.
