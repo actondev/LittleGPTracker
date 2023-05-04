@@ -30,8 +30,8 @@ static void SaveAsProjectCallback(View &v,ModalView &dialog) {
 			str_dstsmpdir = npd.GetName() + "/samples/";
 		#else
 			std::string up = "../";
-			str_dstprjdir = up + npd.GetName();
-			str_dstsmpdir = up + npd.GetName() + "/samples/";
+			str_dstprjdir = npd.GetName();
+			str_dstsmpdir = npd.GetName() + "/samples/";
 		#endif
 
 		Path path_dstprjdir = Path(str_dstprjdir);
